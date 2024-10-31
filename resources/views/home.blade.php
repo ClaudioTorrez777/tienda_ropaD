@@ -33,6 +33,14 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+            @role('admin')
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('usuarios.no.aprobados') }}">
+                    <i class="fas fa-users"></i>
+                    <span>Usuarios No Aprobados</span>
+                </a>
+            </li>
+            @endrole
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
@@ -111,12 +119,35 @@
             </li>
 
             <li class="nav-item">
-
-                <a class="nav-link" href="/admin/ventas">
-                    <i class="bx bx-shopping-bag"></i>
-                    <span>Ventas</span>
+            <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" data-bs-toggle="collapse" data-bs-target="#usuariosSubmenu" aria-expanded="false" aria-controls="usuariosSubmenu">
+                <i class="bx bx-user"></i>
+                <span>Usuarios</span>
+            </a>
+            <ul class="collapse" id="usuariosSubmenu">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('usuarios.admin') }}">
+                <span>Administrador</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('usuarios.cliente') }}">
+                <span>Cliente</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('usuarios.empleado') }}">
+                <span>Empleado</span>
+                </a>
+            </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('usuarios.proveedor') }}">
+                <span>Proveedores</span>
+                </a>
+            </li>
+            </ul>
+        </li>
+
 
             <li class="nav-item">
                 <a class="nav-link" href="/admin/inventario">

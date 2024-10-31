@@ -7,8 +7,11 @@
                 <h2>Tipo ropa</h2>
             </div>
             <div class="pull-right">
+                @role('admin')
                 <a class="btn btn-success" href="{{ route('tipo_ropas.create') }}"> Create nuevo tipo ropa</a>
+                @endrole
                 <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
+
             </div>
         </div>
     </div>
@@ -27,7 +30,9 @@
         <tr>
             <th>No</th>
             <th>Tipo</th>
-            <th width="280px">Action</th>
+            @if(auth()->user()->hasAnyRole(['admin', 'empleado']))
+                <th width="280px">Action</th>
+            @endif
         </tr>
 
         @foreach ($tipo_ropas as $tipo_ropa)
@@ -35,17 +40,20 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $tipo_ropa->tipo }}</td>
                 <td>
-                    <form action="{{ route('tipo_ropas.destroy', $tipo_ropa->id) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('tipo_ropas.show', $tipo_ropa->id) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('tipo_ropas.edit', $tipo_ropa->id) }}">Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    @if(auth()->user()->hasAnyRole(['admin', 'empleado']))
+                        <form action="{{ route('tipo_ropas.destroy', $tipo_ropa->id) }}" method="POST">
+                            <a class="btn btn-info" href="{{ route('tipo_ropas.show', $tipo_ropa->id) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ route('tipo_ropas.edit', $tipo_ropa->id) }}">Edit</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    @endif
                 </td>
             </tr>
         @endforeach
     </table>
+
 
     {!! $tipo_ropas->links() !!}
 

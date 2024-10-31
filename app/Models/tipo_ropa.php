@@ -4,10 +4,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tipo_ropa extends Model
+class tipo_ropa extends Model
 {
     use HasFactory;
 
     protected $fillable = ['tipo'];
+
 }
 
