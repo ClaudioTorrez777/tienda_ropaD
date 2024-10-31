@@ -54,9 +54,11 @@ Route::resource('productos', ProductoController::class);
 Route::resource('/admin/productos', ProductoController::class);
 Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 
-Route::resource('entradas', EntradaController::class);
-Route::resource('admin/entradas', EntradaController::class);
-Route::resource('entradas', EntradaController::class);
+Route::resource('entradas', \App\Http\Controllers\EntradaController::class);
+Route::resource('/admin/entradas', \App\Http\Controllers\EntradaController::class);
+Route::delete('admin/entradas/{entrada}', [\App\Http\Controllers\EntradaController::class, 'destroy'])->name('entradas.destroy');
+Route::delete('admin/entradas/{entrada}', [EntradaController::class, 'destroy'])->name('entradas.destroy');
+
 
 
 // Rutas administrativas bajo el prefijo 'admin'

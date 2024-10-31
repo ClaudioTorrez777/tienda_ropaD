@@ -9,10 +9,10 @@ class Producto extends Model
 {
     use HasFactory;
 
+    protected $table = 'productos'; // Asegúrate de que esté correcto
     protected $primaryKey = 'id_producto';
     protected $fillable = ['id_tiporopa', 'precio', 'id_marca', 'id_categoria'];
 
-    // Relación con Tipos_ropa
     public function tipo_ropa()
     {
         return $this->belongsTo(Tipo_ropa::class, 'id_tiporopa');
