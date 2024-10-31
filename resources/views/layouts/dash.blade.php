@@ -31,8 +31,8 @@
                 <div class="sidebar-brand-text mx-3">MultiFarma<sup></sup></div>
             </a>
 
-           <!-- Divider -->
-           <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
             @role('admin')
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('usuarios.no.aprobados') }}">
@@ -59,112 +59,130 @@
             <!-- Heading -->
             <div class="sidebar-heading">Tablas</div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/home/products">
-                    <i class="bx bxs-user"></i>
-                    <span>Products</span>
-                </a>
-            </li>
 
+
+            @role('admin|empleado')
             <li class="nav-item">
                 <a class="nav-link" href="/home/marcas">
                     <i class="fa fa-tshirt"></i>
                     <span>Marcas</span>
                 </a>
             </li>
+            @endrole
 
 
+            @role('admin|empleado')
             <li class="nav-item">
                 <a class="nav-link" href="/home/categorias">
-                    <i class="bx bx-grid-alt"></i>
+                    <i class="bx bxs-user-account"></i>
                     <span>Categorias</span>
                 </a>
             </li>
+            @endrole
 
+            @role('admin|empleado')
             <li class="nav-item">
                 <a class="nav-link" href="/home/tipo_ropas">
-                    <i class="bx bx-user"></i>
-                    <span>Tipo ropa</span>
+                    <i class="bx bx-grid-alt"></i>
+                    <span>Tipo ropas</span>
                 </a>
             </li>
+            @endrole
 
+            @role('admin')
             <li class="nav-item">
                 <a class="nav-link" href="/home/empresas">
-                    <i class='bx bxs-pin'></i>
+                    <i class="bx bx-user"></i>
                     <span>Empresas</span>
                 </a>
             </li>
+            @endrole
 
-            <!-- Nav Item - Charts -->
+            @role('admin')
             <li class="nav-item">
                 <a class="nav-link" href="/home/puestos">
-                    <i class='bx bxs-cart'></i>
+                    <i class='bx bxs-pin'></i>
                     <span>Puestos</span>
                 </a>
             </li>
+            @endrole
 
+            @role('admin|empleado')
             <li class="nav-item">
                 <a class="nav-link" href="/home/tallas">
                     <i class='bx bx-ruler'></i>
                     <span>Tallas</span>
                 </a>
             </li>
+            @endrole
 
+            @role('admin')
             <li class="nav-item">
                 <a class="nav-link" href="/admin/proveedores">
                     <i class="bx bx-box"></i>
                     <span>Proveedores</span>
                 </a>
             </li>
+            @endrole
 
 
+            <!-- Nav Item - Charts -->
             <li class="nav-item">
-            <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" data-bs-toggle="collapse" data-bs-target="#usuariosSubmenu" aria-expanded="false" aria-controls="usuariosSubmenu">
-                <i class="bx bx-user"></i>
-                <span>Usuarios</span>
-            </a>
-            <ul class="collapse" id="usuariosSubmenu">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('usuarios.admin') }}">
-                <span>Administrador</span>
+                <a class="nav-link" href="/admin/productos">
+                    <i class='bx bxs-cart'></i>
+                    <span>Productos</span>
                 </a>
             </li>
 
+            @role('admin')
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('usuarios.cliente') }}">
-                <span>Cliente</span>
+                <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" data-bs-toggle="collapse" data-bs-target="#usuariosSubmenu" aria-expanded="false" aria-controls="usuariosSubmenu">
+                    <i class="bx bx-user"></i>
+                    <span>Usuarios</span>
                 </a>
+                <ul class="collapse" id="usuariosSubmenu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('usuarios.admin') }}">
+                            <span>Administrador</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('usuarios.cliente') }}">
+                            <span>Cliente</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('usuarios.empleado') }}">
+                            <span>Empleado</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('usuarios.proveedor') }}">
+                            <span>Proveedores</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('usuarios.empleado') }}">
-                <span>Empleado</span>
-                </a>
-            </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{{ route('usuarios.proveedor') }}">
-                <span>Proveedores</span>
-                </a>
-            </li>
+            @endrole
 
-
-
-            </ul>
-        </li>
-
+            @role('admin|empleado')
             <li class="nav-item">
                 <a class="nav-link" href="/admin/inventario">
                     <i class="bx bx-box"></i>
                     <span>Inventario</span>
                 </a>
             </li>
+            @endrole
 
+            @role('admin')
             <li class="nav-item">
                 <a class="nav-link" href="/admin/tipos">
                     <i class="fas fa-tags"></i>
                     <span>Tipos</span>
                 </a>
             </li>
-
+            @endrole
 
             <li class="nav-item">
                 <a class="nav-link" href="/">
